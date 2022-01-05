@@ -13,26 +13,19 @@ app.use(express.json());
 
 
 app.post('/add', (req, res) => {
-    const num1 = req.body.num1;
-    const num2 = req.body.num2;
-    res.json(addition(num1, num2));
+    return res.json(addition(req.body.num1, req.body.num2));
 });
 
 app.post('/multiply', (req, res) => {
-    const num1 = req.body.num1;
-    const num2 = req.body.num2;
-    res.json(multiply(num1, num2));
+    return res.json(multiply(req.body.num1, req.body.num2));
 });
 
 app.post('/modulus', (req, res) => {
-    const num1 = req.body.num1;
-    const num2 = req.body.num2;
-    res.json(modulus(num1, num2));
+    return res.json(modulus(req.body.num1, req.body.num2));
 });
 
 app.post('/fib', (req, res) => {
-    const number = req.body.number;
-    res.json(fibo(number));
+    return res.json(fibo(req.body.number));
 });
 
 app.listen(PORT, () => console.log(`Server running on PORT:${PORT}`));
