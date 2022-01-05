@@ -12,20 +12,27 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 
-app.get('/', (req, res) => {
-    res.json(addition(3, 5));
+app.post('/add', (req, res) => {
+    const num1 = req.body.num1;
+    const num2 = req.body.num2;
+    res.json(addition(num1, num2));
 });
 
-app.get('/multiply', (req, res) => {
-    res.json(multiply(3, 5));
+app.post('/multiply', (req, res) => {
+    const num1 = req.body.num1;
+    const num2 = req.body.num2;
+    res.json(multiply(num1, num2));
 });
 
-app.get('/modulus', (req, res) => {
-    res.json(modulus(12, 4));
+app.post('/modulus', (req, res) => {
+    const num1 = req.body.num1;
+    const num2 = req.body.num2;
+    res.json(modulus(num1, num2));
 });
 
-app.get('/fib', (req, res) => {
-    res.json(fibo(10));
+app.post('/fib', (req, res) => {
+    const number = req.body.number;
+    res.json(fibo(number));
 });
 
 app.listen(PORT, () => console.log(`Server running on PORT:${PORT}`));
